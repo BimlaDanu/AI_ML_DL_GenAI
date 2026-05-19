@@ -44,11 +44,13 @@ Outputs written automatically:
 #### Phase 2: Fine-tune GPT with LoRA
 
 Install extra deps first:
+
 ```bash
 pip install transformers peft datasets accelerate
 ```
 
 Then:
+
 ```bash
 python -m train.finetune_gpt2
 ```
@@ -57,7 +59,8 @@ python -m train.finetune_gpt2
 
 #### Dashboard
 
-Open the dashboard While training is running or after:
+Open the dashboard While training starts:
+
 ```bash
 python -m dashboard.app
 ```
@@ -79,9 +82,10 @@ Tabs:
 #### Optimization
 
 To training on text `train/train_scratch.py`:
+
 ```python
 CONFIG = {
-    "data_path": "path/to/your_corpus.txt",    
+    "data_path": "path/to/*.txt",    
     ...
 }
 ```
