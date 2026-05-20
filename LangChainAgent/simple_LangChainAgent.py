@@ -20,7 +20,7 @@ from langchain.schema import Document
 from langchain import hub
 import math
 
-# 1. Small document store 
+# Small document store 
 DOCUMENTS = [
     "Invoice INV-001 from Vendor ABC for 1500 EUR dated 01.05.2026. Status: unpaid.",
     "Invoice INV-002 from Vendor XYZ for 3200 EUR dated 10.05.2026. Status: paid.",
@@ -29,7 +29,7 @@ DOCUMENTS = [
     "Vendor XYZ has a credit limit of 10000 EUR and payment terms of 14 days.",
 ]
 
-#  2. Build vector store from documents 
+#  Build vector store from documents 
 def build_vectorstore():
     docs = [Document(page_content=text) for text in DOCUMENTS]
     embeddings = HuggingFaceEmbeddings(
@@ -40,7 +40,7 @@ def build_vectorstore():
 
 vectorstore = build_vectorstore()
 
-# 3. Define Tool 1: Document Search 
+#  Define Tool 1: Document Search 
 @tool
 def search_documents(query: str) -> str:
     """
@@ -53,7 +53,7 @@ def search_documents(query: str) -> str:
         return "No relevant documents found."
     return "\n".join([doc.page_content for doc in results])
 
-# 4. Define Tool 2: Calculator
+#  Define Tool 2: Calculator
 @tool
 def calculator(expression: str) -> str:
     """
@@ -70,7 +70,7 @@ def calculator(expression: str) -> str:
     except Exception as e:
         return f"Calculation error: {str(e)}"
 
-# 5. Set up the LLM: os.environ["OPENAI_API_KEY"] = "Individual key"
+# Set up the LLM: os.environ["OPENAI_API_KEY"] = "Individual key"
 
 llm = ChatOpenAI(
     model="gpt-3.5-turbo",
@@ -78,11 +78,10 @@ llm = ChatOpenAI(
     api_key=os.environ.get("OPENAI_API_KEY")
 )
 
-# 6. Load ReAct prompt from LangChain hub 
-# A standard ReAct prompt: Thought -> Action -> Observation loop
+#  Load ReAct prompt from LangChain hub; A standard ReAct prompt: Thought -> Action -> Observation loop
 prompt = hub.pull("hwchase17/react")
 
-#  7. Build the agent
+#  Build the agent
 tools = [search_documents, calculator]
 
 agent = create_react_agent(
@@ -99,7 +98,7 @@ agent_executor = AgentExecutor(
     handle_parsing_errors=True
 )
 
-#  8. Test questions
+#  Test questions
 if __name__ == "__main__":
 
     questions = [
