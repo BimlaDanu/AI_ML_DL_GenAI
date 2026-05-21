@@ -7,7 +7,7 @@ Two tools:
 The agent decides which tool to use based on the question.
 """
 
-# Install first
+
 # pip install langchain langchain-openai faiss-cpu sentence-transformers
 
 import os
