@@ -9,7 +9,6 @@ The agent decides which tool to use based on the question.
 
 
 # pip install langchain langchain-openai faiss-cpu sentence-transformers
-
 import os
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain.tools import tool
