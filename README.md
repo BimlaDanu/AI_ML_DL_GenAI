@@ -1,11 +1,7 @@
 #### Image Reconstruction using CNN (MNIST & CIFAR-10)
 
-This project demonstrates image reconstruction using Convolutional Neural Networks (CNNs) and Autoencoders in :contentReference[oaicite:0]{index=0}.
+This project demonstrates image reconstruction using Convolutional Neural Networks (CNNs) and Autoencoders
 
-Two popular datasets were used:
-
-- :contentReference[oaicite:1]{index=1} — grayscale handwritten digit images (28×28)
-- :contentReference[oaicite:2]{index=2} — color images from 10 classes such as airplanes, cats, ships, and trucks (32×32 RGB)
 
 The model learns to:
 1. Compress images into a smaller latent representation
