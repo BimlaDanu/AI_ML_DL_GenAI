@@ -1,8 +1,8 @@
-### NLP project summary
+### Project Summary
 
 __Author-Topic Latent Dirichlet Allocation__: 
 
-The notebook [Latent_Dirichlet_Allocation.ipynb](Latent_Dirichlet_Allocation.ipynb)  uses the corpus, dictionary and other data built in [Text_Mining_Processing.ipynb](Text_Mining_Processing.ipynb) to train a Author-Topic Latent Dirichlet Allocation (LDA) model. LDA model is a topic modelling technique. In a text corpus, each document is associated with a multinomial distribution over topics, and each topic is associated with a multinomial distribution over words. Here, Dirichlet distributions are used as prior distributions. The author topic model extends LDA to include authorship information.  For the author-topic model, each author is associated with a multonimial distribution over topics (instead of each documents). In addition, the model can also handle documents with more than one author.
+The notebook [Latent_Dirichlet_Allocation.ipynb](Latent_Dirichlet_Allocation.ipynb)  uses the corpus, dictionary and other data built in [Text_Mining_Processing.ipynb](Text_Mining_Processing.ipynb) to train a Author-Topic Latent Dirichlet Allocation (LDA) model. LDA model is a topic modelling technique. In a text corpus, each document is associated with a multinomial distribution over topics, and each topic is associated with a multinomial distribution over words. Here, Dirichlet distributions are used as prior distributions. The author topic model extends LDA to include authorship information.  For the author-topic model, each author is associated with a multonimial distribution over topics.
 
 __Text mining and processing__: 
 
@@ -11,17 +11,18 @@ The notebook [Text_Mining_Processing.ipynb](Text_Mining_Processing.ipynb) execut
 - __Text mining__: Documents are created out of text extracted from Wikipedia pages using the wikipedia api and [`Wikipedia-API`](https://pypi.org/project/Wikipedia-API/). This is done by using home built python script [Fetch_Wiki_data.py](Fetch_Wiki_data.py).
 
 - __Text processing__: The text of the documents are then processed using [spaCy](https://spacy.io/) library. That includes
-    - tokenization of words,
-    - cleaning-up, 
-    - lemmatization,
+    - tokenization of words
+    - cleaning-up
+    - lemmatization
     - POS tagging
-    - In the end a dictionary is created, mapping words to numerical ids, and the documents are converted to a bag-of-words format.
+
+In the end a dictionary is created, mapping words to numerical ids, and the documents are converted to a bag-of-words format
 
 
 Bash commands one can use for troubleshooting various issues and setting up environment
 
 ```bash
-make                  # builds NLP_env + installs everything
+make                  # builds NLP_env + installs everything else
 source NLP_env/bin/activate
 # work...
 deactivate
