@@ -1,6 +1,50 @@
-### LLM Project Builder
+### Building a Tiny LLM from Scratch
 
-- Building tiny LLM from scratch in three phases.
+This project walks through building a small language model end-to-end from
+a bare tokenizer to a live training dashboard. It is structured in three phases.
+
+---
+
+#### Building blocks
+
+A GPT-style language model trained on plain text, with a Plotly Dash dashboard
+that visualises everything happening during training and loss curves, attention
+patterns, token embeddings, and a live text generation panel.
+
+---
+
+#### Phase 1: Transformer from scratch
+
+We build the model in PyTorch. This covers a
+character-level tokenizer, multi-head causal self-attention with masking, a
+feed-forward network, layer normalisation, and the full autoregressive training
+loop with AdamW and cosine learning rate decay.
+
+
+---
+
+#### Phase 2: Fine-tuning GPT-2 with LoRA
+
+Instead of training from random weights, we take a pre-trained GPT-2 and
+adapt it to text using LoRA (Low-Rank Adaptation). Only a small
+fraction of the parameters are updated, which means we can run this on a
+laptop. 
+
+---
+
+#### Phase 3:  ML Dashboard
+
+A Dash app reads the training logs written by Phase 1 and 2 and renders them
+live as the model trains. Six tabs cover the loss and perplexity curves,
+the learning rate schedule, per-layer attention heatmaps, a PCA or t-SNE
+scatter of token embeddings, and an interactive generation panel where you
+can type a prompt and adjust temperature, top-k, top-p, and beam width in
+real time.
+
+---
+
+#### Project layout
+
 
 ```
 llm_project/
@@ -21,14 +65,42 @@ llm_project/
     └── checkpoint.py       # CheckpointManager -> save/resume/best
 ```
 
----
 
-#### Phase 1:  Train a tiny GPT from scratch
+#### For running
 
+**Phase 1: train from scratch**
 ```bash
-cd llm_project
 python -m train.train_scratch
 ```
+
+**Dashboard: open while training is running**
+```bash
+python -m dashboard.app
+# http://127.0.0.1:8050
+```
+
+**Phase 2: fine-tune GPT-2**
+```bash
+pip install transformers peft accelerate
+python -m train.finetune_gpt2
+```
+
+---
+
+#### Dependencies
+
+Phase 1 and the dashboard uses:
+`torch`, `numpy`, `pandas`, `scikit-learn`, `plotly`, `dash`.
+
+Phase 2 adds `transformers`, `peft`, and `accelerate` from HuggingFace.
+
+---
+
+#### Optimization
+
+To training on text `train/train_scratch.py`:
+
+
 
 Outputs written automatically:
 | File | Used by |
@@ -41,33 +113,15 @@ Outputs written automatically:
 
 ---
 
-#### Phase 2: Fine-tune GPT with LoRA
 
-Install extra deps first:
+Install extra deps (PFET) data sets:
 
 ```bash
 pip install transformers peft datasets accelerate
 ```
 
-Then:
-
-```bash
-python -m train.finetune_gpt2
-```
 
 ---
-
-#### Dashboard
-
-Open the dashboard While training starts:
-
-```bash
-python -m dashboard.app
-```
-on web:
-
-http://127.0.0.1:8050
-
 
 Tabs:
 - **Overview:** — 2×2 live training summary
@@ -79,9 +133,6 @@ Tabs:
 
 ---
 
-#### Optimization
-
-To training on text `train/train_scratch.py`:
 
 ```python
 CONFIG = {
