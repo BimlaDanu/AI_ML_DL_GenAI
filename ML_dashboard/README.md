@@ -1,4 +1,4 @@
-# ML Dashboard
+### ML Dashboard (dash + python + plotly)
 
 This project presents an interactive Machine Learning dashboard built with Python for visualizing, analyzing, and monitoring machine learning workflows and model performance. The dashboard is designed to simplify data exploration and provide an intuitive interface for understanding how machine learning models behave during training and prediction.
 
