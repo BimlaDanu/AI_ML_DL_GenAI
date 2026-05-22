@@ -1,3 +1,35 @@
+#### Image Reconstruction using CNN (MNIST & CIFAR-10)
+
+This project demonstrates image reconstruction using Convolutional Neural Networks (CNNs) and Autoencoders in :contentReference[oaicite:0]{index=0}.
+
+Two popular datasets were used:
+
+- :contentReference[oaicite:1]{index=1} — grayscale handwritten digit images (28×28)
+- :contentReference[oaicite:2]{index=2} — color images from 10 classes such as airplanes, cats, ships, and trucks (32×32 RGB)
+
+The model learns to:
+1. Compress images into a smaller latent representation
+2. Reconstruct the original image from noisy or compressed inputs
+
+The CNN encoder extracts important visual features using convolution filters, while the decoder reconstructs the image using transposed convolutions.
+
+This project helps understand:
+- CNN feature extraction
+- Image denoising and reconstruction
+- Latent space representations
+- Basics of generative deep learning models
+
+The implementation includes:
+- Data preprocessing and normalization
+- CNN-based autoencoder architecture
+- Training and reconstruction visualization
+- Loss vs epoch plots
+- Learned filter visualization
+
+
+
+#### Bash commands and python environments
+
 ```bash
  make clean
  make 
