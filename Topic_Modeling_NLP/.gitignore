@@ -33,6 +33,6 @@ Thumbs.db
 *.log
 
 # Optional generated data/models (uncomment if needed)
-# data/
+ data/
 # models/
 # outputs/
