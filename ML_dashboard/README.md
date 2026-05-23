@@ -15,6 +15,8 @@ The dashboard supports machine learning workflows by helping users explore datas
 
 Technologies used include Python, Plotly, Pandas, NumPy, Matplotlib, Scikit-learn, and dashboard/visualization tools integrated into the application.
 
+This project is build with AI assistance.
+
 
 Python environment and bash commands:
 

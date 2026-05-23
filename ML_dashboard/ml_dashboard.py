@@ -513,7 +513,7 @@ def submit_application(n, name, email, role, exp, github, note):
         background="rgba(56,189,248,0.08)", border=f"1px solid {BORDER}",
         borderRadius=10, padding="16px 20px",
     ), children=[
-        html.Span("🚀  ", style=dict(fontSize=18)),
+        html.Span("  ", style=dict(fontSize=18)),
         html.Span(f"Thanks, {name}! Your application for ", style=dict(color=TEXT, fontSize=13)),
         html.Strong(role, style=dict(color=ACCENT)),
         html.Span(f" has been received. We'll be in touch at ", style=dict(color=TEXT, fontSize=13)),
