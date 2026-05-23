@@ -1,12 +1,12 @@
 """
 model/transformer.py
 ====================
-GPT-style decoder-only transformer — pure PyTorch, no HuggingFace.
+GPT-style decoder-only transformer — with PyTorch.
 
 Components (bottom-up):
   GPTConfig           — all hyperparameters in one dataclass
   CausalSelfAttention — multi-head self-attention with causal mask
-  FeedForward         — position-wise FFN (Linear → GELU → Linear)
+  FeedForward         — position-wise FFN (Linear -> GELU -> Linear)
   TransformerBlock    — one layer: pre-norm + attention + pre-norm + FFN
   GPT                 — full model: embeddings + N blocks + LM head
 
@@ -162,7 +162,7 @@ class FeedForward(nn.Module):
 
 
 
-# TRANSFORMER BLOCK  (one layer)
+# TRANSFORMER BLOCK
 class TransformerBlock(nn.Module):
     """
     One GPT-style decoder block using pre-norm (LayerNorm before sub-layer).
@@ -198,7 +198,7 @@ class TransformerBlock(nn.Module):
 # FULL GPT MODEL
 class GPT(nn.Module):
     """
-    GPT-style causal language model.
+    GPT-style simple language model.
 
     Architecture:
       tok_emb  : Embedding(vocab_size, d_model)          — token embeddings

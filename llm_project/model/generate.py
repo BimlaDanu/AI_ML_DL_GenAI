@@ -4,8 +4,8 @@ model/generate.py
 Text generation strategies for the GPT model.
 
 All strategies share the same autoregressive loop:
-  1. Feed the current context to the model → get logits for next token
-  2. Apply a sampling strategy to the logits → pick the next token
+  1. Feed the current context to the model -> get logits for next token
+  2. Apply a sampling strategy to the logits -> pick the next token
   3. Append it to the context and repeat
 
 Strategies implemented:
@@ -40,9 +40,9 @@ class GenerationConfig:
 
     temperature:
       Controls the randomness of predictions.
-      < 1.0 → more focused / repetitive (sharp distribution)
-      > 1.0 → more diverse / creative (flat distribution)
-      = 1.0 → use the model's raw probabilities unchanged
+      < 1.0 -> more focused / repetitive (sharp distribution)
+      > 1.0 -> more diverse / creative (flat distribution)
+      = 1.0 -> use the model's raw probabilities unchanged
 
     top_k:
       Keep only the top-k most probable tokens; set the rest to −∞.

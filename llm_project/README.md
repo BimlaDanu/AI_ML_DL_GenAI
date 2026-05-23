@@ -1,7 +1,6 @@
 ## Building a Tiny LLM from Scratch
 
-This project walks through building a small language model end-to-end from
-a bare tokenizer to a live training dashboard. It is structured in three phases.
+This project walks through building a small language model end-to-end from a bare tokenizer to a live training dashboard. It is structured in three phases. The all contents of this projects are AI generated and AI assisted.  
 
 ---
 

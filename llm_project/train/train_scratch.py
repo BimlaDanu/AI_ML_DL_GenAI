@@ -3,7 +3,7 @@ train/train_scratch.py
 ======================
 Phase 1 training loop — tiny GPT from scratch.
 
-Writes three artefacts your Dash dashboard reads:
+Writes three artefacts in Dash dashboard:
   training_log.csv   — loss / perplexity / LR / grad_norm at every log step
   attn_weights.npy   — (n_layers, n_heads, T, T) for attention heatmaps
   embeddings.npy     — (vocab_size, d_model) for PCA / t-SNE scatter

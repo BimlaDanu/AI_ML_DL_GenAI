@@ -18,7 +18,7 @@ Run:
     cd llm_project
     python -m dashboard.app
 
-Then open http://127.0.0.1:8050 in your browser.
+Then open http://127.0.0.1:8050 in browser.
 
 Optional: to connect to a trained model for the Inference tab, set
   MODEL_CHECKPOINT and TOKENIZER_PATH at the bottom of this file.
