@@ -116,7 +116,7 @@ In matrix form:
 Attention(Q, K, V) = softmax( Q · K^T / sqrt(d_head) ) · V
 ```
 
-**Causal mask**
+**Masking**
 
 A language model must never look at future tokens. We enforce this by setting all scores where j > i to negative infinity before softmax, so their weight
 becomes exactly zero:
@@ -316,7 +316,7 @@ adapt it to text using LoRA (Low-Rank Adaptation). Only a small
 fraction of the parameters are updated, which means we can run this on a
 laptop. 
 
-**What is LoRA?**
+**What is Low-Rank Adaptation(LoRA)?**
 
 Low-Rank Adaptation freezes all original model weights and injects small
 trainable matrices alongside the attention projections. For a weight matrix
@@ -405,7 +405,7 @@ T > 1.0 flattens it (more creative, more random).
 
 Keep only the k highest-probability tokens; set the rest to -inf before softmax. Prevents nonsense tokens from ever being sampled.
 
-**Top-p (nucleus) sampling**
+**Top-p  sampling**
 
 Keep the smallest set of tokens whose cumulative probability exceeds p. The nucleus size adapts: small when the model is confident, larger when uncertain. Typical setting: p = 0.9 to 0.95.
 
