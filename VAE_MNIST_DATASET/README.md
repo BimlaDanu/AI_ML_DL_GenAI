@@ -13,9 +13,9 @@ The model learns a compressed latent representation of handwritten digits and re
 - GPU/CPU support with PyTorch
 
 #### Architecture
-- Encoder: `784 → 256 → latent mean/log variance`
+- Encoder: `784 -> 256 -> latent mean/log variance`
 - Latent dimension: `20`
-- Decoder: `20 → 256 → 784`
+- Decoder: `20 -> 256 -> 784`
 
 #### Loss Function
 The VAE optimizes:
