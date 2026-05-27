@@ -17,7 +17,7 @@ patterns, token embeddings, and a live text generation panel.
 We build the model in PyTorch. This covers a
 character-level tokenizer, multi-head causal self-attention with masking, a
 feed-forward network, layer normalisation, and the full autoregressive training
-loop with AdamW and cosine learning rate decay.
+loop with Adam and cosine learning rate decay.
 
 
 #### 1. Tokenizer — `data/prepare.py`
@@ -35,7 +35,7 @@ vocab  = {' ': 0, 'T': 1, 'b': 2, 'e': 3, 'o': 4, ...}
 
 ```
 x = tokens[i   : i + T]      input sequence
-y = tokens[i+1 : i + T + 1]  target — x shifted one position right
+y = tokens[i+1 : i + T + 1]  target - x shifted one position right
 ```
 
 This is the next-token prediction objective: at every position t in x, predict x[t+1]. A model that does this perfectly has learned the full conditional distribution of the language.
@@ -61,8 +61,7 @@ Each row is a d_model-dimensional vector. Similar tokens end up with similar vec
 
 **Positional embedding:**
 
-The transformer has no inherent sense of order — the same token at position 3 and position 30 would look identical without positional information. We add a
-second learned table:
+The transformer has no inherent sense of order — the same token at position 3 and position 30 would look identical without positional information. We add a second learned table:
 
 ```
 E_pos ∈ R^(context_len × d_model)
@@ -75,14 +74,13 @@ The final input to the transformer is their sum:
 x = dropout( E_tok[tokens] + E_pos[positions] )    shape: (B, T, d_model)
 ```
 
-Addition in the same vector space lets the model disentangle what a token is
-from where it appears.
+Addition in the same vector space lets the model disentangle what a token is from where it appears.
 
 ---
 
 #### 3. Causal Self-Attention
 
-This is the heart of the transformer. When predicting the next word in "The cat sat on the ___", the model should pay more attention to "cat" and "sat" than to "The". Attention learns which tokens matter for each prediction.
+This is the heart of the transformer. When predicting the next word in "The cat sat on the ", the model should pay more attention to "cat" and "sat" than to "The". Attention learns which tokens matter for each prediction.
 
 **Queries, Keys, and Values**
 
@@ -138,7 +136,7 @@ head_i  = Attention(Q_i, K_i, V_i)      each over d_head dimensions
 MultiHead = concat(head_1, ..., head_h) · W_out
 ```
 
-Each head can specialise — one might attend to syntax, another to semantics. The full shape flow through the layer:
+Each head can specialise - one might attend to syntax, another to semantics. The full shape flow through the layer:
 
 ```
 x              : (B, T, d_model)
@@ -155,8 +153,7 @@ The attention weights are returned alongside the output so the dashboard can ren
 
 #### 4. Feed-Forward Network
 
-After attention, each token position independently passes through a small
-two-layer network:
+After attention, each token position independently passes through a small two-layer network:
 
 ```
 FFN(x) = dropout( W_2 · dropout( GELU( W_1 · x ) ) )
@@ -174,6 +171,7 @@ GELU (Gaussian Error Linear Unit) is defined as:
 ```
 GELU(x) = x · Φ(x)
 ```
+
 
 where Φ(x) is the CDF of the standard normal distribution. It is smoother than ReLU near zero, which empirically helps language models converge faster. GPT-2, BERT, and virtually all modern transformers use it.
 
@@ -386,7 +384,6 @@ renders the output alongside the token probability bar chart.
 ---
 
 ### Generation Strategies — `model/generate.py`
-
 All strategies use the same loop: forward pass -> apply strategy -> sample
 next token -> append -> repeat.
 
@@ -424,7 +421,6 @@ Beam search is deterministic and finds higher-probability sequences than samplin
 
 
 #### Project layout
-
 
 ```
 llm_project/
@@ -464,7 +460,6 @@ python -m dashboard.app
 pip install transformers peft accelerate
 python -m train.finetune_gpt2
 ```
-
 ---
 
 #### Dependencies
@@ -479,8 +474,6 @@ Phase 2 adds `transformers`, `peft`, and `accelerate` from HuggingFace.
 #### Optimization
 
 To training on text `train/train_scratch.py`:
-
-
 
 Outputs written automatically:
 | File | Used by |
@@ -499,8 +492,6 @@ Install extra deps (PFET) data sets:
 ```bash
 pip install transformers peft datasets accelerate
 ```
-
-
 ---
 
 Tabs:
