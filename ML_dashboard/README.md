@@ -13,7 +13,7 @@ The project includes:
 The dashboard supports machine learning workflows by helping users explore datasets, evaluate model performance, identify patterns in predictions, and better understand training behavior through visual analytics. It can be used for educational purposes, model experimentation, and basic deployment-style monitoring of machine learning applications.
 
 
-Technologies used include Python, Plotly, Pandas, NumPy, Matplotlib, Scikit-learn, and dashboard/visualization tools integrated into the application.
+Technologies used include Python, `Plotly`, Pandas, NumPy, Matplotlib, Scikit-learn, and dashboard/visualization tools integrated into the application.
 
 This project is build with AI assistance.
 

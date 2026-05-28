@@ -74,11 +74,9 @@ def input_field(id_, placeholder, type_="text"):
     )
 
 # ------------------------------------------------------------#
-#  GENERATE SYNTHETIC DATA
+#  SYNTHETIC DATA GENERATION
 # ------------------------------------------------------------#
-
 np.random.seed(42)
-
 # Classification dataset
 X, y = make_classification(n_samples=600, n_features=10, n_informative=6,
                            n_redundant=2, random_state=42)
@@ -125,9 +123,8 @@ val_acc    = [1 - vl + np.random.normal(0, 0.007) for vl in val_loss]
 X_blob, y_blob = make_blobs(n_samples=300, centers=3, cluster_std=1.4, random_state=7)
 
 # ------------------------------------------------------------#
-#  BUILD FIGURES
+#  PLOTTING FIGURES
 # ------------------------------------------------------------#
-
 def fig_loss_curves():
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=epochs, y=train_loss, mode="lines+markers",
@@ -227,7 +224,7 @@ def fig_skill_radar():
     return fig
 
 # ------------------------------------------------------------#
-#  LAYOUT
+#  DASHBOARD LAYOUT
 # ------------------------------------------------------------#
 
 ROLES = ["ML Engineer", "Data Scientist", "AI Research Engineer",
@@ -522,8 +519,6 @@ def submit_application(n, name, email, role, exp, github, note):
     ])
 
 # ------------------------------------------------------------#
-# ------------------------------------------------------------#
-
 #  RUN
 if __name__ == "__main__":
     print("\n╔══════════════════════════════════════════════════╗")
