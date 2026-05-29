@@ -145,9 +145,11 @@ def fig_model_compare():
         y=metrics_df["Accuracy"], marker_color=ACCENT, marker_line_width=0))
     fig.add_trace(go.Bar(name="AUC-ROC %", x=metrics_df["Model"],
         y=metrics_df["AUC_ROC"], marker_color=PURPLE, marker_line_width=0))
-    fig.update_layout(**PLOTLY_LAYOUT, title="Model Comparison",
-                      barmode="group", yaxis=dict(range=[60, 100],
-                      gridcolor="rgba(56,189,248,0.07)"))
+    fig.update_layout(**PLOTLY_LAYOUT, title="Model Comparison", barmode="group")
+    fig.update_yaxes(range=[60, 100], gridcolor="rgba(56,189,248,0.07)")
+    #fig.update_layout(**PLOTLY_LAYOUT, title="Model Comparison",
+    #                  barmode="group", yaxis=dict(range=[60, 100],
+    #                  gridcolor="rgba(56,189,248,0.07)"))
     return fig
 
 def fig_roc_curves():
@@ -230,7 +232,8 @@ def fig_skill_radar():
 ROLES = ["ML Engineer", "Data Scientist", "AI Research Engineer",
          "MLOps Engineer", "NLP Engineer"]
 
-app = dash.Dash(__name__, title="ML/AI Dashboard")
+#app = dash.Dash(__name__, title="ML/AI Dashboard")
+app = dash.Dash(__name__, title="ML/AI Dashboard", suppress_callback_exceptions=True)
 app.layout = html.Div(style=dict(
     minHeight="100vh", background=BG,
     fontFamily="'Courier New', monospace", color=TEXT,
@@ -265,16 +268,16 @@ app.layout = html.Div(style=dict(
             parent_style=dict(marginTop=24),
             colors=dict(border=BORDER, primary=ACCENT, background=BG),
             children=[
-                dcc.Tab(label="📊  Overview",  value="overview",
+                dcc.Tab(label="Overview",  value="overview",
                         style=dict(color=MUTED, fontFamily="monospace", fontSize=12, background=BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0"),
                         selected_style=dict(color=ACCENT, fontFamily="monospace", fontSize=12, background=CARD_BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0")),
-                dcc.Tab(label="🧠  Training",  value="training",
+                dcc.Tab(label="Training",  value="training",
                         style=dict(color=MUTED, fontFamily="monospace", fontSize=12, background=BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0"),
                         selected_style=dict(color=ACCENT, fontFamily="monospace", fontSize=12, background=CARD_BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0")),
-                dcc.Tab(label="🔍  Features",  value="features",
+                dcc.Tab(label="Features",  value="features",
                         style=dict(color=MUTED, fontFamily="monospace", fontSize=12, background=BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0"),
                         selected_style=dict(color=ACCENT, fontFamily="monospace", fontSize=12, background=CARD_BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0")),
-                dcc.Tab(label="🚀  Apply",     value="apply",
+                dcc.Tab(label="Apply",     value="apply",
                         style=dict(color=MUTED, fontFamily="monospace", fontSize=12, background=BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0"),
                         selected_style=dict(color=ACCENT, fontFamily="monospace", fontSize=12, background=CARD_BG, border=f"1px solid {BORDER}", borderRadius="8px 8px 0 0")),
             ]
@@ -294,18 +297,30 @@ def render_tab(tab):
     if tab == "overview":
         # Metric cards
         kpis = [
-            ("🎯", "Best Accuracy", f"{metrics_df['Accuracy'].max():.1f}%", "+2.1%"),
-            ("📦", "Training Samples", "450", "+15K rows"),
-            ("⚙️",  "Features",         "10",  "+4 engineered"),
-            ("⚡", "Models Trained",    "3",   "sklearn"),
+            ("Best Accuracy", f"{metrics_df['Accuracy'].max():.1f}%", "+2.1%"),
+            ("Training Samples", "450", "+15K rows"),
+            ("Features",         "10",  "+4 engineered"),
+            ("Models Trained",    "3",   "sklearn"),
         ]
+        #
+        #
+        #kpis = [
+        #    ("🎯", "Best Accuracy", f"{metrics_df['Accuracy'].max():.1f}%", "+2.1%"),
+        #    ("📦", "Training Samples", "450", "+15K rows"),
+        #    ("⚙️",  "Features",         "10",  "+4 engineered"),
+        #    ("⚡", "Models Trained",    "3",   "sklearn"),
+        #]
+        #
+        #
         metric_row = html.Div(style=dict(display="grid", gridTemplateColumns="repeat(4,1fr)", gap=16, marginBottom=20), children=[
             card([
-                html.P(icon + "  " + label, style=dict(color=MUTED, fontSize=11, margin="0 0 8px")),
+                html.P( label, style=dict(color=MUTED, fontSize=11, margin="0 0 8px")),
+                #html.P(icon + "  " + label, style=dict(color=MUTED, fontSize=11, margin="0 0 8px")),
                 html.H2(value, style=dict(color=TEXT, fontSize=26, margin="0 0 4px", fontWeight=700)),
                 html.Span(delta, style=dict(color=ACCENT, fontSize=11)),
             ])
-            for icon, label, value, delta in kpis
+            for label, value, delta in kpis
+            #for icon, label, value, delta in kpis
         ])
 
         charts_row = html.Div(style=dict(display="grid", gridTemplateColumns="1.6fr 1fr", gap=16), children=[
