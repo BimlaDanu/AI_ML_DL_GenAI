@@ -40,4 +40,7 @@ python -m ipykernel install --user --name=dashboard_env --display-name "Python (
  make
  source dashboard_env/bin/activate
 ```
+Open in the web with
+
+http://127.0.0.1:8050  
 
