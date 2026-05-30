@@ -14,6 +14,8 @@ The two CNN projects built in PyTorch — a **denoising autoencoder** on MNIST a
 
 ---
 
+The notebook[CNN_Classifier_Pytorch.ipynb](CNN_Classifier_Pytorch.ipynb) is created and trained on Google Colab with GPU. It might show rendering problem. In that case for the details of code please have a look on files [CNN_Classifier_Pytorch_CIFAR.py](CNN_Classifier_Pytorch_CIFAR.py) and [CNN_Classifier_Pytorch_MNIST.py](CNN_Classifier_Pytorch_MNIST.py).
+
 ### Project 1 — MNIST Denoising Autoencoder
 
 #### Overview
