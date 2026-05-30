@@ -5,6 +5,8 @@ This project demonstrates image reconstruction and generation using a Variationa
 
 The model learns a compressed latent representation of handwritten digits and reconstructs the original images from this latent space. Unlike traditional autoencoders, the VAE learns a probabilistic latent distribution, allowing it to generate new digit samples by sampling random latent vectors.
 
+The file [VAE_Classifier_Pytorch_GPU.ipynb](VAE_Classifier_Pytorch_GPU.ipynb) is created on Google Colab and trained on using GPU. For the details of the code see file [VAE_Classifier_Pytorch_GPU.py](VAE_Classifier_Pytorch_GPU.py).
+
 #### Features
 - Train a VAE on MNIST digits
 - Reconstruct handwritten digit images
