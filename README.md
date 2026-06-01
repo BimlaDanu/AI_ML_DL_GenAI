@@ -22,6 +22,9 @@ The implementation includes:
 - Loss vs epoch plots
 - Learned filter visualization
 
+The notebook [CNN_classification.ipynb](CNN_Pytorch/CCNN_classification.ipynb) trained on CPU for small epoch sizes and is not efficient. For efficient training  see the notebook [CNN_Classifier_Pytorch.ipynb](CNN_Pytorch/CNN_Classifier_Pytorch.ipynb) which created and trained on Google Colab with GPU. It might show rendering problem. In that case for the details of code please have a look on files [CNN_Classifier_Pytorch_CIFAR.py](CNN_Classifier_Pytorch_CIFAR.py) and [CNN_Pytorch/CCNN_Classifier_Pytorch_MNIST.py](CNN_Pytorch/CNN_Classifier_Pytorch_MNIST.py).
+
+
 
 
 #### Bash commands and python environments
