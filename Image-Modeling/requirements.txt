@@ -1,0 +1,9 @@
+jupyterlab
+matplotlib
+Pillow
+numpy
+scipy
+tqdm
+tensorflow-macos
+tensorflow-metal
+tensorflow-hub
