@@ -6,9 +6,7 @@ In the notebooks [image-modeling 1](Image_Modeling_01.ipynb) and [image-modeling
 
 To work through following notebooks
 
-1. [image-modeling](Image_Modeling_01.ipynb)
-
-2. [image-modeling 2](Image_Modeling_02.ipynb)
+1. [image-modeling 1](Image_Modeling_01.ipynb)
 
 ## Environment
 
