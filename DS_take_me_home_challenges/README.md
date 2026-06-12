@@ -3,6 +3,7 @@
 
 - The notebook [triad_challenge.ipynb](triad_challenge.ipynb) solve the TRI-AD challenge [data_scientist_triad.md](data_scientist_triad.md)
 
+- The notebook [amboss_challenge.ipynb](amboss_challenge.ipynb) solve the challenge [product_analyst_amboss.md](product_analyst_amboss.md)
 
 
 To install hdf5
