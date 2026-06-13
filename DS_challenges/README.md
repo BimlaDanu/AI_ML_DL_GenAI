@@ -4,7 +4,7 @@
 
 - The notebook [amboss_challenge.ipynb](amboss_challenge.ipynb) solve the challenge [product_analyst_amboss.md](product_analyst_amboss.md)
 
-- The notebook [Notification_Bundler/solution_walkthrough.ipynb](solution_walkthrough.ipynb) solve the challenge [senior_data_scientist_engineer_k.md](senior_data_scientist_engineer_k.md)
+- The notebook [Notification_Bundler/solution_walkthrough.ipynb](Notification_Bundler/solution_walkthrough.ipynb) solve the challenge [Notification_Bundler/senior_data_scientist_engineer_k.md](Notification_Bundler/senior_data_scientist_engineer_k.md)
 
 To install hdf5
 ```BASH
