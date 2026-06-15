@@ -129,42 +129,8 @@ jupyter >= 1.0
 # Install dependencies
 pip install pandas numpy scikit-learn matplotlib seaborn jupyter xgboost lightgbm
 
-# Launch the notebook
-jupyter notebook urban_air_pollution.ipynb
 ```
 
----
-
-### 5. Running the Project
-
-#### Full notebook (recommended)
-
-```bash
-jupyter notebook urban_air_pollution.ipynb
-# Run All Cells → produces all figures, trains all models, saves model + predictions
-```
-
-#### From the terminal (training script pattern)
-
-```bash
-# Train and save the model
-python train.py urban_air_data.csv
-# saves model.pkl
-
-# Generate predictions on new data
-python predict.py test.csv model.pkl
-# → prints predictions.csv to stdout
-```
-
-#### Using real data
-
-Replace the synthetic data block in **Section 0** of the notebook with:
-
-```python
-df = pd.read_csv('_data.csv', parse_dates=['date'])
-```
-
-The rest of the pipeline runs unchanged, provided the column names match the schema above.
 
 ---
 
