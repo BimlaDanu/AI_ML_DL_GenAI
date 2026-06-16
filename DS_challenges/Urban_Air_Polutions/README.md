@@ -256,18 +256,6 @@ All ML models predict **log(PM2.5 + 1)** and results are exponentiated back to �
 
 ---
 
-### 10. Future Work
-
-- [ ] Add PM2.5 lag features (t-1, t-7, t-30) for persistence modelling
-- [ ] Integrate fire radiative power (FRP) from VIIRS satellite for wildfire episode detection
-- [ ] Build a REST API endpoint that serves daily predictions per city
-- [ ] Deploy an interactive dashboard (Streamlit / Dash) with map visualisation
-- [ ] Expand target variables to PM10, NO₂, and O₃ for a full multi-pollutant system
-- [ ] Evaluate deep learning approaches (LSTM, TFT) on the time series structure
-- [ ] Apply PPM-adjusted local models for the top 20 most polluted cities
-- [ ] Connect to live GFS and Sentinel 5P data feeds for real-time inference
-
----
 
 ### 11. References
 
