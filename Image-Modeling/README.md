@@ -1,14 +1,15 @@
-# Image Modeling
+### Image Modeling
 
 In the notebooks [image-modeling 1](Image_Modeling_01.ipynb) and [image-modeling 2](Image_Modeling_02.ipynb) we deal with image-modeling using artifical neural networks.
 
-## Task
+#### Task
 
 To work through following notebooks
 
 1. [image-modeling 1](Image_Modeling_01.ipynb)
+2. [image-modeling 2](Image_Modeling_02.ipynb)
 
-## Environment
+### Environment
 
 Create a new environment using the requirements file in this repo.
 
