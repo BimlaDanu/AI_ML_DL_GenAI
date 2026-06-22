@@ -6,6 +6,12 @@
 
 - The notebook [Notification_Bundler/solution_walkthrough.ipynb](Notification_Bundler/solution_walkthrough.ipynb) solve the challenge [Notification_Bundler/senior_data_scientist_engineer_k.md](Notification_Bundler/senior_data_scientist_engineer_k.md)
 
+There are two additional projects which  provided the detail  data analysis of  the Urban Air Ploutions and Recommender systems
+ 
+- [Urban_Air_Polutions/urban_air_pollution.ipynb](Urban_Air_Polutions/urban_air_pollution.ipynb)
+
+- [Recommender_System/recommender_system.ipynb](Recommender_System/recommender_system.ipynb) 
+
 To install hdf5
 ```BASH
  brew install hdf5
